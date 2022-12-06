@@ -32,7 +32,7 @@ function Clock() {
     }
 
     const stringTime = date.toTimeString().slice(0, 8) || <br/> //'date->time'   .toTimeString().slice(0,8) || <br/>  // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
-    const stringDate = `${date.getDay()}.${date.getMonth()+1}.${date.getFullYear()}` || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
+    const stringDate = `${date.toLocaleString("en-US", {day: 'numeric'})}.${date.getMonth()+1}.${date.getFullYear()}` || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
 
     // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
     const stringDay = new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(date)/*date.getDay()*/ || <br/> // пишут студенты
